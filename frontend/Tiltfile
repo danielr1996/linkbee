@@ -1,0 +1,26 @@
+docker_build(
+    'linkbee-frontend',
+    context='.',
+    dockerfile='Dockerfile',
+    target='development',
+    entrypoint='npm run start',
+    live_update=[
+        sync('.', '/usr/src/app'),
+    ]
+)
+k8s_yaml(helm('./chart',values=[
+    # './values.dev.yaml',
+    # './values.secrets.yaml'
+]))
+
+k8s_resource(
+    'chart-linkbee-frontend',
+    port_forwards='3001:3000',
+    labels=['frontend']
+)
+
+# k8s_resource(
+    # objects=['chart-sdp-management-ui:secret'],
+    # new_name='sdp-management-ui-secret',
+    # labels=['sdp-management-ui']
+# )
