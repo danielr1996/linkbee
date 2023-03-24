@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: linkbee
+subjects:
+- kind: ServiceAccount
+  name: {{ include "chart.serviceAccountName" . }}
+  namespace: "{{ .Release.Namespace }}"
+roleRef:
+  kind: ClusterRole
+  name: linkbee
+  apiGroup: rbac.authorization.k8s.io

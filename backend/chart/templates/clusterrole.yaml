@@ -1,0 +1,8 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+ name: linkbee
+rules:
+- apiGroups: ["linkbee.danielrichter.codes"]
+  resources: ["dashboardentries"]
+  verbs: ["get", "watch", "list"]
