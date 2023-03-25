@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useQuery,gql } from '@apollo/client';
+import { useSubscription } from '@apollo/client/react';
+import { useEffect } from 'react';
+
+//TODO: Examine the use of Fragments
+const fragment = `dashboardEntry{
+  id
+  name
+  url
+}`
+const QUERY= gql`query{${fragment}}`
+const SUBSCRIPTION = gql`subscription{${fragment}}`
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { loading, data, subscribeToMore } = useQuery(QUERY);
+  useEffect(()=>{
+    subscribeToMore({
+      document: SUBSCRIPTION,
+      variables: {},
+      updateQuery: (prev, { subscriptionData }) => {
+        if (!subscriptionData.data) return prev;
+        return {...prev,...subscriptionData.data}
+      }
+    })
+  },[subscribeToMore])
+  if(loading) return <>Loading...</>
+  return <ul>
+    {data.dashboardEntry.map((entry:any)=><li key={entry.id}><a href={entry.url}>{entry.name}</a></li>)}
+  </ul>
 }
 
 export default App;

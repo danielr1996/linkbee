@@ -1,5 +1,8 @@
-export type DashboardEntry = {
-    id: string,
-    name: string,
-    url: string,    
+import { Field, ObjectType } from "@nestjs/graphql";
+
+@ObjectType()
+export class DashboardEntry {
+    @Field() id: string
+    @Field() name: string
+    @Field() url: string    
 }
