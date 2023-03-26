@@ -1,0 +1,17 @@
+environment:
+  APP_HTTP_API: "https://api.dashboard.dani.rip/graphql"
+  APP_WS_API: "wss://api.dashboard.dani.rip/graphql"
+ingress:
+  enabled: true
+  className: "private"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: dashboard.dani.rip
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+   - secretName: dashboard.dani.rip
+     hosts:
+       - dashboard.dani.rip

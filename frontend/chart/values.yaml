@@ -1,8 +1,8 @@
 replicaCount: 1
 image:
-  repository: linkbee-frontend
+  repository: ghcr.io/danielr1996/linkbee-frontend
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: "latest"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

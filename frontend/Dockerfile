@@ -10,7 +10,6 @@ COPY --chown=node:node package*.json ./
 COPY --chown=node:node . .
 RUN npm ci --only=production && npm cache clean --force
 RUN npm run build
-USER node
 
 FROM nginx As production
 WORKDIR /usr/share/nginx/html

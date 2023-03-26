@@ -1,0 +1,14 @@
+ingress:
+  enabled: true
+  className: "private"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: api.dashboard.dani.rip
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+   - secretName: api.dashboard.dani.rip
+     hosts:
+       - api.dashboard.dani.rip

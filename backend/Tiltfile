@@ -2,6 +2,7 @@ docker_build(
     'linkbee-backend',
     context='.',
     dockerfile='Dockerfile',
+    # target='production',
     target='development',
     entrypoint='npm run start:dev',
     live_update=[
