@@ -16,6 +16,9 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
+containerPort: 80
+environment: {}
+configMapMountLocation: "/usr/share/nginx/html/config.js"
 service:
   type: ClusterIP
   port: 80

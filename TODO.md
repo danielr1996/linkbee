@@ -1,0 +1,9 @@
+- fix // TODOS
+- make endpoints configurable
+- use redis pubsub implementation
+- put graphql queries in services
+- remove subscriptions-transport-ws package from backend and frontend
+- create prod pipeline
+    - build docker images
+    - configure react app through env vars (create custom react docker image)
+    - configure helm chart for prod use

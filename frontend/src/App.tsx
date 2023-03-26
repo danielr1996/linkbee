@@ -24,9 +24,11 @@ function App() {
     })
   },[subscribeToMore])
   if(loading) return <>Loading...</>
-  return <ul>
+  return <>
+  <h1>Linkbee</h1>
+  <ul>
     {data.dashboardEntry.map((entry:any)=><li key={entry.id}><a href={entry.url}>{entry.name}</a></li>)}
-  </ul>
+  </ul></>
 }
 
 export default App;

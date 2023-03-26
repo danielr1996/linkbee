@@ -6,11 +6,11 @@ import App from './App';
 import { createClient } from 'graphql-ws';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { getMainDefinition } from '@apollo/client/utilities';
+import { getConfigValue } from './lib/config';
 
-const wsLink = new GraphQLWsLink(createClient({
-  url: 'ws://localhost:4000/graphql',
-}));
-const httpLink = new HttpLink({uri: 'http://localhost:4000/graphql'})
+
+const wsLink = new GraphQLWsLink(createClient({url: getConfigValue('WS_API'),}));
+const httpLink = new HttpLink({uri: getConfigValue('HTTP_API')})
 const splitLink = split(({ query }) => {
     const definition = getMainDefinition(query);
     return (
@@ -35,6 +35,6 @@ root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <App />
-    </ApolloProvider>,
+    </ApolloProvider>
   </React.StrictMode>
 );

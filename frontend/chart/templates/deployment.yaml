@@ -13,8 +13,9 @@ spec:
       {{- include "chart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
@@ -34,8 +35,13 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: {{ .Values.containerPort }}
               protocol: TCP
+          volumeMounts:
+          - name: config
+            mountPath: {{ .Values.configMapMountLocation }}
+            subPath: "config.js"
+            readOnly: true
           livenessProbe:
             httpGet:
               path: /
@@ -46,6 +52,13 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "chart.fullname" . }}
+            items:
+              - key: "config.js"
+                path: "config.js"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
