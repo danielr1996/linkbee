@@ -2,7 +2,7 @@ import { ApolloClient, HttpLink, InMemoryCache, split } from '@apollo/client/cor
 import { ApolloProvider } from '@apollo/client/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import {App} from './App';
 import { createClient } from 'graphql-ws';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { getMainDefinition } from '@apollo/client/utilities';

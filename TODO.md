@@ -1,5 +1,3 @@
-- fix // TODOS
 - use redis pubsub implementation
-- put graphql queries in services
 - create helm sub chart
 - create ci/cd pipeline
