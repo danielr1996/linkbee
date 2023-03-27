@@ -1,6 +1,5 @@
 - fix // TODOS
 - use redis pubsub implementation
 - put graphql queries in services
-- remove subscriptions-transport-ws package from backend and frontend
 - create helm sub chart
 - create ci/cd pipeline
