@@ -23,8 +23,8 @@ k8s_resource(
     labels=['frontend']
 )
 
-# k8s_resource(
-    # objects=['chart-sdp-management-ui:secret'],
-    # new_name='sdp-management-ui-secret',
-    # labels=['sdp-management-ui']
-# )
+k8s_resource(
+    objects=['chart-linkbee-frontend:configmap'],
+    new_name='frontend-manifests',
+    labels=['manifests']
+)
