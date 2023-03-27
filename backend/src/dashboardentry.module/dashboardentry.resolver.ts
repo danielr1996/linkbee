@@ -10,15 +10,11 @@ export class DashboardEntryResolver {
     private repo: DashboardEntryRepository,
     @Inject('PUB_SUB') private pubSub: PubSub,
   ) {
-    setInterval(()=>{
-      this.pubSub.publish('test', { test: `${Math.random()}`})
-    },2000)
   }
   
 
   @Query(() => [DashboardEntry])
   async dashboardEntry() {
-    console.log(this.repo.get())
     return this.repo.get()
   }
 
