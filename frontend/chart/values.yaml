@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/danielr1996/linkbee-frontend
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "2"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
