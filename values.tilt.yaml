@@ -1,0 +1,12 @@
+includeExamples: true
+linkbee-backend:
+  image:
+    repository: linkbee-backend
+linkbee-frontend:
+  image:
+    repository: linkbee-frontend
+  containerPort: 3000
+  configMapMountLocation: "/usr/src/app/public/config.js"
+  environment:
+    APP_HTTP_API: "http://localhost:4000/graphql"
+    APP_WS_API: "ws://localhost:4000/graphql"

@@ -1,3 +1,2 @@
 - use redis pubsub implementation
-- create helm sub chart
 - create ci/cd pipeline

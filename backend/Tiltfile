@@ -9,23 +9,20 @@ docker_build(
         sync('.', '/usr/src/app'),
     ]
 )
-k8s_yaml(helm('./chart',values=[
-    './values.tilt.yaml'
-]))
 
 k8s_resource(
     'chart-linkbee-backend',
     port_forwards='4000:3000',
-    labels=['backend']
+    # labels=['backend']
 )
 
-k8s_resource(
-    objects=[
-        'linkbee:clusterrole',
-        'linkbee:clusterrolebinding',
-        'dashboardentries.linkbee.danielrichter.codes:customresourcedefinition',
-        'chart-linkbee-backend:serviceaccount'
-    ],
-    new_name='backend-manifests',
-    labels=['manifests']
-)
+# k8s_resource(
+#     objects=[
+#         'linkbee:clusterrole',
+#         'linkbee:clusterrolebinding',
+#         'dashboardentries.linkbee.danielrichter.codes:customresourcedefinition',
+#         'chart-linkbee-backend:serviceaccount'
+#     ],
+#     new_name='backend-manifests',
+#     labels=['manifests']
+# )

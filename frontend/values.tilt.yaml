@@ -1,4 +1,0 @@
-image:
-  repository: linkbee-frontend
-containerPort: 3000
-configMapMountLocation: "/usr/src/app/public/config.js"

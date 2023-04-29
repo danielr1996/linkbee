@@ -9,22 +9,15 @@ docker_build(
         sync('.', '/usr/src/app'),
     ]
 )
-k8s_yaml(helm('./chart',values=[
-    './values.tilt.yaml',
-    './values.env.yaml'
-],
-# set=['containerPort=3000']
-))
 
 k8s_resource(
     'chart-linkbee-frontend',
     # port_forwards='3000:80',
     port_forwards='3000:3000',
-    labels=['frontend']
+    # labels=['frontend']
 )
 
-k8s_resource(
-    objects=['chart-linkbee-frontend:configmap'],
-    new_name='frontend-manifests',
-    labels=['manifests']
-)
+# k8s_resource(
+#     objects=['linkbee-linkbee-frontend:configmap'],
+#     labels=['frontend']
+# )

@@ -1,0 +1,25 @@
+{{- if .Values.includeExamples }}
+apiVersion: linkbee.danielrichter.codes/v1alpha
+kind: DashboardEntry
+metadata:
+  name: wikipedia
+spec:
+  name: Wikipedia
+  url: https://wikipedia.com
+---
+apiVersion: linkbee.danielrichter.codes/v1alpha
+kind: DashboardEntry
+metadata:
+  name: ietf
+spec:
+  name: IETF
+  url: https://www.ietf.org/
+---
+apiVersion: linkbee.danielrichter.codes/v1alpha
+kind: DashboardEntry
+metadata:
+  name: ieee
+spec:
+  name: IEEE
+  url: https://www.ieee.org/
+{{- end }}
