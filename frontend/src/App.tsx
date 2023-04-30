@@ -2,6 +2,12 @@ import { DashboardEntries, useDashboardEntries } from './dashboard.module/api/ap
 import { ApolloQueryComponent } from './lib/ApolloQueryComponent';
 
 export const App = ()=>{
+  return <>
+    {<Test></Test>}
+  </>
+}
+
+const Test = ()=>{
   const queryResult = useDashboardEntries()
   return <ApolloQueryComponent<DashboardEntries> result={queryResult} >
     {({dashboardEntry})=><>
