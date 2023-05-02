@@ -1,45 +1,14 @@
-import { ApolloClient, HttpLink, InMemoryCache, split} from '@apollo/client/core';
 import { ApolloProvider } from '@apollo/client/react';
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from './App';
-import { createClient } from 'graphql-ws';
-import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
-import { getMainDefinition } from '@apollo/client/utilities';
-import { getConfigValue } from './lib/config';
+import { graphqlClient } from './lib/graphql';
+import {RouterProvider} from "react-router-dom";
+import CssBaseline from '@mui/material/CssBaseline';
 
-const username = getConfigValue('BASIC_AUTH_USERNAME')
-const password = getConfigValue('BASIC_AUTH_PASSWORD')
-
-const token = `${username}:${password}`
-
-const wsLink = new GraphQLWsLink(createClient({
-  url: getConfigValue('WS_API')
-}));
-
-const httpLink = new HttpLink({
-  uri: getConfigValue('HTTP_API'),
-  headers: {
-    "Authorization": `Basic ${window.btoa(token)}`
-  }
-})
-
-
-const splitLink = split(({ query }) => {
-  const definition = getMainDefinition(query);
-  return (
-    definition.kind === 'OperationDefinition' &&
-    definition.operation === 'subscription'
-  );
-},
-  wsLink,
-  httpLink
-);
-
-const client = new ApolloClient({
-  link: splitLink,
-  cache: new InMemoryCache(),
-});
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { router } from './lib/routes';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -47,8 +16,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   // <React.StrictMode>
-  <ApolloProvider client={client}>
-    <App />
+  <ApolloProvider client={graphqlClient}>
+    <CssBaseline />
+    <RouterProvider router={router} />
   </ApolloProvider>
   // </React.StrictMode>
 );

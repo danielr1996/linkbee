@@ -15,8 +15,12 @@ spec:
             spec:
               type: object
               properties:
-                name:
+                title:
                   type: string
+                  default: ""
+                description:
+                  type: string
+                  default: ""
                 url:
                   type: string
                 icon:

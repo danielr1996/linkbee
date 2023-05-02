@@ -11,8 +11,9 @@ export declare class V1AlphaDashboardEntry {
     'kind'?: string;
     'metadata': V1ObjectMeta;
     'spec': {
-        name: string,
+        title: string,
         url: string,
+        description: string,
         icon: {
             location: string,
             external: boolean

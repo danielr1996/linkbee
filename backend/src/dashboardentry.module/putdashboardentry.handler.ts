@@ -18,6 +18,7 @@ export class PutDashboardEntryHandler implements ICommandHandler<PutDashboardEnt
         @Inject('PUB_SUB') private pubSub: PubSub,
         ){}
     async execute({dashboardentry}: PutDashboardEntryCommand) {
+        console.log(dashboardentry)
         this.dashboardRepo.update(dashboardentry)
         this.pubSub.publish('dashboardEntry', { dashboardEntry: this.dashboardRepo.get()})
     }

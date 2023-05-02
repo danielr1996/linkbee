@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 
 export type DashboardEntry = {
     id: string,
-    name: string,
+    title: string,
+    description: string,
     url: string,
     icon: {
         location: string,
@@ -15,7 +16,8 @@ export type DashboardEntries = {dashboardEntry: DashboardEntry[]}
 export const useDashboardEntries = (): QueryResult<DashboardEntries> => {
     const fragment = `dashboardEntry{
       id
-      name
+      title
+      description
       url
       icon {
         location

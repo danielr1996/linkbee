@@ -9,7 +9,8 @@ export class DashboardEntryIcon {
 @ObjectType()
 export class DashboardEntry {
     @Field() id: string
-    @Field() name: string
+    @Field() title: string
+    @Field() description: string
     @Field() url: string    
     @Field() icon: DashboardEntryIcon
 }

@@ -4,7 +4,8 @@ kind: DashboardEntry
 metadata:
   name: keycloak
 spec:
-  name: Keycloak
+  title: Keycloak
+  description: Single Sign On
   url: https://www.keycloak.org
   icon: 
     location: https://www.keycloak.org/resources/images/keycloak_icon_512px.svg
@@ -15,25 +16,32 @@ kind: DashboardEntry
 metadata:
   name: calendar
 spec:
-  name: Kalender
+  title: Kalender
+  description: CalDAV Calendar
   url: https://sabre.io
+  icon:
+    external: true
+    location: https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/proton-calendar.svg
 ---
 apiVersion: linkbee.danielrichter.codes/v1alpha
 kind: DashboardEntry
 metadata:
   name: documents
 spec:
-  name: Dokumente
+  title: Dokumente
+  description: PaperlessNG Dokumenten Management
   url: https://docs.paperless-ngx.com
   icon:
-    location: /assets/favicon.png
+    external: true
+    location: https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/paperless-ng.svg
 ---
 apiVersion: linkbee.danielrichter.codes/v1alpha
 kind: DashboardEntry
 metadata:
   name: passwordmanager
 spec:
-  name: Password Manager
+  title: Password Manager
+  description: Vaultwarden Password Manager
   url: https://bitwarden.com/
   icon:
     location: /icons/icon-512x512.png
@@ -43,7 +51,8 @@ kind: DashboardEntry
 metadata:
   name: storage
 spec:
-  name: Longhorn Storage
+  title: Longhorn
+  description: Longhorn Kubernetes Storage
   url: https://longhorn.io/
   icon:
     location: /favicon.png
