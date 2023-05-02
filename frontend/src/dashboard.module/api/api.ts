@@ -5,6 +5,10 @@ export type DashboardEntry = {
     id: string,
     name: string,
     url: string,
+    icon: {
+        location: string,
+        external: boolean,
+    }
 }
 export type DashboardEntries = {dashboardEntry: DashboardEntry[]}
 
@@ -13,6 +17,10 @@ export const useDashboardEntries = (): QueryResult<DashboardEntries> => {
       id
       name
       url
+      icon {
+        location
+        external
+      }
     }`
     const QUERY = gql`query{${fragment}}`
     const SUBSCRIPTION = gql`subscription{${fragment}}`

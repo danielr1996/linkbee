@@ -2,24 +2,49 @@
 apiVersion: linkbee.danielrichter.codes/v1alpha
 kind: DashboardEntry
 metadata:
-  name: wikipedia
+  name: keycloak
 spec:
-  name: Wikipedia
-  url: https://wikipedia.com
+  name: Keycloak
+  url: https://www.keycloak.org
+  icon: 
+    location: https://www.keycloak.org/resources/images/keycloak_icon_512px.svg
+    external: true
 ---
 apiVersion: linkbee.danielrichter.codes/v1alpha
 kind: DashboardEntry
 metadata:
-  name: ietf
+  name: calendar
 spec:
-  name: IETF
-  url: https://www.ietf.org/
+  name: Kalender
+  url: https://sabre.io
 ---
 apiVersion: linkbee.danielrichter.codes/v1alpha
 kind: DashboardEntry
 metadata:
-  name: ieee
+  name: documents
 spec:
-  name: IEEE
-  url: https://www.ieee.org/
+  name: Dokumente
+  url: https://docs.paperless-ngx.com
+  icon:
+    location: /assets/favicon.png
+---
+apiVersion: linkbee.danielrichter.codes/v1alpha
+kind: DashboardEntry
+metadata:
+  name: passwordmanager
+spec:
+  name: Password Manager
+  url: https://bitwarden.com/
+  icon:
+    location: /icons/icon-512x512.png
+---
+apiVersion: linkbee.danielrichter.codes/v1alpha
+kind: DashboardEntry
+metadata:
+  name: storage
+spec:
+  name: Longhorn Storage
+  url: https://longhorn.io/
+  icon:
+    location: /favicon.png
 {{- end }}

@@ -13,6 +13,10 @@ export declare class V1AlphaDashboardEntry {
     'spec': {
         name: string,
         url: string,
+        icon: {
+            location: string,
+            external: boolean
+        }
     };
 }
 
