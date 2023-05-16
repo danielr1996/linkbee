@@ -58,7 +58,7 @@ export const DashboardEntryCard: FunctionComponent<DashboardEntry> = ({ id, url,
             <Avatar variant="square" sx={{width:64,height:64}} alt={`favicon for ${title}`} src={imgSrc} />
         </Stack>
         <Box>
-            <Typography variant="h6" component="h1">{title}</Typography>
+            <Typography variant="h6" component="h1"><a style={{textDecoration: 'none', color: purple5}} href={url}>{title}</a></Typography>
             <Typography variant="subtitle1" component="h2">{description}</Typography>
         </Box>
     </Stack>

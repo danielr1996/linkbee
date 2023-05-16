@@ -1,0 +1,38 @@
+linkbee-backend:
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      nginx.ingress.kubernetes.io/auth-type: "basic"
+      nginx.ingress.kubernetes.io/auth-secret: "longhorn-system/basic-auth-secret"
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+    hosts:
+      - host: api.dashboard.danielrichter.codes
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+    - secretName: api.dashboard.danielrichter.codes
+      hosts:
+        - api.dashboard.danielrichter.codes
+linkbee-frontend:
+  environment:
+    APP_HTTP_API: "https://api.dashboard.danielrichter.codes/graphql"
+    APP_WS_API: "wss://api.dashboard.danielrichter.codes/graphql"
+    APP_BASIC_AUTH_USERNAME: admin
+    APP_BASIC_AUTH_PASSWORD: reformat-rice-candle
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      nginx.ingress.kubernetes.io/auth-type: "basic"
+      nginx.ingress.kubernetes.io/auth-secret: "longhorn-system/basic-auth-secret"
+    hosts:
+      - host: dashboard.danielrichter.codes
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+    - secretName: dashboard.danielrichter.codes
+      hosts:
+        - dashboard.danielrichter.codes
