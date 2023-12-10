@@ -2,13 +2,13 @@ apiVersion: v2
 name: linkbee
 description: linkbee
 type: application
-version: 0.1.1
-appVersion: "0.1.0"
+version: 0.1.2
+appVersion: "0.1.2"
 dependencies:
 - name: 'linkbee-frontend'
-  version: '0.1.0'
+  version: 0.1.2
   repository: 'file://../frontend/chart'
 - name: 'linkbee-backend'
-  version: '0.1.0'
+  version: 0.1.2
   repository: 'file://../backend/chart'
   

@@ -1,9 +1,9 @@
 dependencies:
 - name: linkbee-frontend
   repository: file://../frontend/chart
-  version: 0.1.0
+  version: 0.1.2
 - name: linkbee-backend
   repository: file://../backend/chart
-  version: 0.1.0
-digest: sha256:f7cb5a62789e20bd4ef0a80d41ece7b41b06b4e640cf7e924cfd4d9120bc7a00
-generated: "2023-04-28T11:43:16.033586+02:00"
+  version: 0.1.2
+digest: sha256:3e116d1c542c3576bc3e783c98104cb944606dcbfbce66e587b54b22a7f0b747
+generated: "2023-12-10T18:14:40.156348+01:00"

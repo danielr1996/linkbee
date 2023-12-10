@@ -1,0 +1,9 @@
+body {
+    /*margin: 0;*/
+    /*border: 1px solid green;*/
+}
+
+#root > .MuiBox-root {
+    /*border: 1px solid red;*/
+    overflow: initial !important;
+}
